@@ -161,6 +161,7 @@ class VideoRAG:
     def ask(self, question:str):
         retrieved_docs = self.retriever.invoke(question)
         context = self.format_docs(retrieved_docs)
+        
         # One query embedding for timestamp refinement
         query_embedding = np.array(self.embeddings.embed_query(question))
 
